@@ -40,6 +40,7 @@ def launch_setup(context, *args, **kwargs):
     sim_gazebo = LaunchConfiguration("sim_gazebo")
     sim_ignition = LaunchConfiguration("sim_ignition")
     robot_type = LaunchConfiguration("robot_type")
+    gripper = LaunchConfiguration("gripper")
     dof = LaunchConfiguration("dof")
     vision = LaunchConfiguration("vision")
     # General arguments
@@ -102,7 +103,7 @@ def launch_setup(context, *args, **kwargs):
             robot_controllers,
             " ",
             "gripper:=",
-            "robotiq_2f_85",
+            gripper,
             " ",
         ]
     )
@@ -302,6 +303,13 @@ def generate_launch_description():
             description="DoF of robot.",
             choices=["6", "7"],
             default_value="7",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gripper",
+            default_value='""',
+            description="Name of the gripper attached to the arm",
         )
     )
     declared_arguments.append(
