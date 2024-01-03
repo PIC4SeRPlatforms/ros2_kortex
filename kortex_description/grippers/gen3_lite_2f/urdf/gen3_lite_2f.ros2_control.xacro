@@ -34,7 +34,7 @@
             <joint name="${prefix}right_finger_bottom_joint">
                 <command_interface name="position" />
                 <state_interface name="position">
-                    <param name="initial_value">0.85</param>
+                    <param name="initial_value">0.0</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
@@ -42,7 +42,7 @@
             <xacro:if value="${use_fake_hardware or sim_isaac or sim_ignition}">
                 <joint name="${prefix}right_finger_tip_joint">
                     <param name="mimic">${prefix}right_finger_bottom_joint</param>
-                    <param name="multiplier">-1</param>
+                    <param name="multiplier">1</param>
                     <xacro:unless value="${sim_ignition}">
                         <command_interface name="position"/>
                         <state_interface name="position"/>
@@ -60,7 +60,7 @@
                 </joint>
                 <joint name="${prefix}left_finger_tip_joint">
                     <param name="mimic">${prefix}right_finger_bottom_joint</param>
-                    <param name="multiplier">-1</param>
+                    <param name="multiplier">1</param>
                     <xacro:unless value="${sim_ignition}">
                         <command_interface name="position"/>
                         <state_interface name="position"/>
