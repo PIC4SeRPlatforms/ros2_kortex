@@ -59,7 +59,7 @@ def launch_setup(context, *args, **kwargs):
         # https://answers.ros.org/question/397123/how-to-access-the-runtime-value-of-a-launchconfiguration-instance-within-custom-launch-code-injected-via-an-opaquefunction-in-ros2/
         [
             FindPackageShare(description_package),
-            "arms/gen3/" + dof.perform(context) + "dof/config",
+            "arms/" + robot_type.perform(context) + "/" + dof.perform(context) + "dof/config",
             controllers_file,
         ]
     )
@@ -234,7 +234,7 @@ def launch_setup(context, *args, **kwargs):
         PythonLaunchDescriptionSource(
             [FindPackageShare("ros_gz_sim"), "/launch/gz_sim.launch.py"]
         ),
-        launch_arguments={"ign_args": " -r -v 3 empty.sdf"}.items(),
+        launch_arguments={"ign_args": " -v 3 empty.sdf"}.items(),
         condition=IfCondition(sim_ignition),
     )
 

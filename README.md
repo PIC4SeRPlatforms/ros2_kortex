@@ -210,6 +210,19 @@ ros2 launch kortex_bringup gen3.launch.py \
   dof:=6
 ```
 
+To simulate the 6dof Kinova Gen3 Lite with Ignition run the following:
+```bash
+ros2 launch kortex_bringup kortex_sim_control.launch.py \
+  robot_type:=gen3_lite \
+  gripper:=gen3_lite_2f \
+  dof:=6 \
+  name:=gen3_lite \
+  robot_name:=gen3_lite \
+  robot_hand_controller:=gen3_lite_2f_controller \
+  use_sim_time:=true \
+  launch_rviz:=false 
+```
+
 To simulate the 7dof Kinova Gen3 robot with ignition run the following:
 
 ```bash

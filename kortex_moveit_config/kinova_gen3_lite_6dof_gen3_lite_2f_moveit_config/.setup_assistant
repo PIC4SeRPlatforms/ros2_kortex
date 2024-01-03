@@ -1,0 +1,26 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: kortex_description
+    relative_path: robots/kinova.urdf.xacro
+    xacro_args: robot_ip:=xxx.yyy.zzz.www name:=gen3_lite arm:=gen3_lite dof:=6 vision:=false prefix:="" sim_gazebo:=false sim_ignition:=true simulation_controllers:=/workspaces/vscode_moveit_humble/src/ros2_kortex/kortex_description/arms/gen3_lite/6dof/config/ros2_controllers.yaml gripper:=gen3_lite_2f
+  srdf:
+    relative_path: config/gen3_lite.srdf
+  package_settings:
+    author_name: Marco Ambrosio
+    author_email: marco.ambrosio@polito.it
+    generated_timestamp: 1703330435
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
