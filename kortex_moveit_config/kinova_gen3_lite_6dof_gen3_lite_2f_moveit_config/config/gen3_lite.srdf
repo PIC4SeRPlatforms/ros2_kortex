@@ -92,4 +92,5 @@
     <disable_collisions link1="right_finger_dist_link" link2="right_finger_prox_link" reason="Adjacent"/>
     <disable_collisions link1="right_finger_dist_link" link2="upper_wrist_link" reason="Never"/>
     <disable_collisions link1="right_finger_prox_link" link2="upper_wrist_link" reason="Never"/>
+    <disable_collisions link1="right_finger_dist_link" link2="left_finger_dist_link" reason="Never"/> <!-- Added by user to solve gripper related problems -->
 </robot>
