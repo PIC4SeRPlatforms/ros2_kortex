@@ -65,12 +65,12 @@ def generate_launch_description():
         "publish_state_updates": should_publish,
         "publish_transforms_updates": should_publish,
         "monitor_dynamics": False,
+        "use_sim_time": LaunchConfiguration("use_sim_time"),
     }
 
     move_group_params = [
         moveit_config.to_dict(),
         move_group_configuration,
-        {"use_sim_time": LaunchConfiguration("use_sim_time")},
     ]
 
     add_debuggable_node(
@@ -85,4 +85,4 @@ def generate_launch_description():
         additional_env={"DISPLAY": os.environ["DISPLAY"]},
     )
 
-    return generate_move_group_launch(moveit_config)
+    return ld
