@@ -44,6 +44,7 @@ def generate_launch_description():
                 "robot_hand_controller": "gen3_lite_2f_controller",
                 "use_sim_time": "true",
                 "launch_rviz": "false",
+                "vision": "true",
             }.items(),
             condition=IfCondition(LaunchConfiguration("start_sim")),
         )

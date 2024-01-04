@@ -99,15 +99,15 @@
     <gazebo reference="camera_color_frame">
       <sensor name="camera_sensor" type="rgbd_camera">
         <camera>
-          <horizontal_fov>1.047</horizontal_fov>
+          <horizontal_fov>1.211259</horizontal_fov>
           <image>
             <width>$(arg camera_width)</width>
             <height>$(arg camera_height)</height>
             <format>RGB_INT8</format>
           </image>
           <clip>
-            <near>0.1</near>
-            <far>5</far>
+            <near>0.2</near>
+            <far>10</far>
           </clip>
           <distortion>
             <k1>0.0</k1>
@@ -119,6 +119,7 @@
           </distortion>
           <lens>
             <intrinsics>
+              <!-- TODO(Marco) insert correct intrinsic for D435 camera -->
               <fx>554.25469</fx>
               <fy>554.25469</fy>
               <cx>320.5</cx>
@@ -147,7 +148,7 @@
               <far>5</far>
             </clip>
           </depth_camera>
-          <optical_frame_id>color_optical_frame</optical_frame_id>
+          <optical_frame_id>camera_color_optical_frame</optical_frame_id>
         </camera>
         <ignition_frame_id>camera_color_frame</ignition_frame_id>
         <always_on>1</always_on>

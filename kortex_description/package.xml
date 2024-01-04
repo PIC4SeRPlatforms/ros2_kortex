@@ -5,8 +5,9 @@
   <version>0.2.2</version>
   <description>
     <p>URDF and xacro description package for Kortex robots</p>
-    <p>This package contains configuration data, 3D models and launch files
-for Kortex arms and supported grippers</p>
+    <p>This package contains
+    configuration data, 3D models and launch files
+      for Kortex arms and supported grippers</p>
   </description>
   <author email="avannobel@kinova.ca">Alexandre Vannobel</author>
   <maintainer email="avannobel@kinova.ca" />
@@ -23,6 +24,7 @@ for Kortex arms and supported grippers</p>
   <exec_depend>picknik_reset_fault_controller</exec_depend>
   <exec_depend>picknik_twist_controller</exec_depend>
   <exec_depend>rviz2</exec_depend>
+  <exec_depend>realsense2_description</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
