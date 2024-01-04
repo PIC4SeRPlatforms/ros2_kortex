@@ -7,24 +7,24 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 find_package(moveit_common REQUIRED)
 moveit_package()
 
 set(THIS_PACKAGE_INCLUDE_DEPENDS
   moveit_ros_planning_interface
 )
-
 include_directories(${THIS_PACKAGE_INCLUDE_DIRS})
-
 foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
-
 ament_export_dependencies(
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
 
-
+# executables
 add_executable(home src/home.cpp)
 ament_target_dependencies(home
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
@@ -41,6 +41,8 @@ install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}/
 )
+ament_python_install_package(${PROJECT_NAME})
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
