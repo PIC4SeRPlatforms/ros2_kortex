@@ -29,11 +29,6 @@
   <exec_depend>kortex_description</exec_depend>
   <exec_depend>kortex_driver</exec_depend>
 
-  <!-- Packages for Simulation  with Ignition/Gz -->
-  <exec_depend>gazebo_ros2_control</exec_depend>
-  <exec_depend>ros_gz</exec_depend>
-  <exec_depend>ign_ros2_control</exec_depend>
-
   <export>
     <build_type>ament_cmake</build_type>
   </export>
