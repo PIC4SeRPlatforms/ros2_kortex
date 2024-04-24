@@ -59,7 +59,7 @@ def launch_setup(context, *args, **kwargs):
     gripper_joint_name = LaunchConfiguration("gripper_joint_name")
 
     # if we are using fake hardware then we can't use the internal gripper communications of the hardware
-    if use_fake_hardware.perform(context):
+    if use_fake_hardware.perform(context) == "true" or use_fake_hardware.perform(context) == "True":
         use_internal_bus_gripper_comm = "false"
 
     robot_description_content = Command(
