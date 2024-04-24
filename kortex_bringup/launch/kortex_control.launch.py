@@ -36,6 +36,8 @@ def launch_setup(context, *args, **kwargs):
     # Initialize Arguments
     robot_type = LaunchConfiguration("robot_type")
     robot_ip = LaunchConfiguration("robot_ip")
+    username = LaunchConfiguration("username")
+    password = LaunchConfiguration("password")
     dof = LaunchConfiguration("dof")
     # General arguments
     controllers_file = LaunchConfiguration("controllers_file")
@@ -57,8 +59,8 @@ def launch_setup(context, *args, **kwargs):
     gripper_joint_name = LaunchConfiguration("gripper_joint_name")
 
     # if we are using fake hardware then we can't use the internal gripper communications of the hardware
-    # if use_fake_hardware.parse:
-    #     use_internal_bus_gripper_comm = "false"
+    if use_fake_hardware.perform(context):
+        use_internal_bus_gripper_comm = "false"
 
     robot_description_content = Command(
         [
@@ -70,6 +72,12 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "robot_ip:=",
             robot_ip,
+            " ",
+            "username:=",
+            username,
+            " ",
+            "password:=",
+            password,
             " ",
             "name:=",
             robot_name,
@@ -218,12 +226,12 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "username", description="Robot session username.", default_value="admin"
+            "username", description="Robot session username.", default_value="ros"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "password", description="Robot session password.", default_value="admin"
+            "password", description="Robot session password.", default_value="ros"
         )
     )
     declared_arguments.append(
