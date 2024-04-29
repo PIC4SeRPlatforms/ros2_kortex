@@ -4,12 +4,27 @@ This package is meant to wrap the original [ros2_kortex](https://github.com/Kino
 
 ## Usage
 
-There is only a [single launch file](./launch/gen3_lite.launch.py) that manages simulation and MoveIt. Launch arguments can be used to configure what should be started every time from the command line.
+There is only a [single launch file](./launch/gen3_lite.launch.py) that manages simulation, real robot and MoveIt. Launch arguments can be used to configure what should be started every time from the command line.
 
 Example usage to run a simulation with all MoveIt functionalities:
 ```bash
 ros2 launch pic4kinova gen3_lite.launch.py
 ```
+
+Example for bringup on real hardware:
+```bash
+ros2 launch pic4kinova gen3_lite.launch.py use_sim_time:=false
+```
+
+## Launch Arguments
+
+- use_sim_time: bool, default: True
+- move_group: bool, default: True
+- servo: bool, default: True
+- rviz: bool, default: True
+- robot_ip: string, default: "192.168.1.10"
+- debug: bool, default: False
+
 
 ## Simulation
 

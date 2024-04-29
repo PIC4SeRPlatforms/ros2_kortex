@@ -1,6 +1,6 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction, OpaqueFunction
-from launch.conditions import IfCondition
+from launch.actions import IncludeLaunchDescription, TimerAction, OpaqueFunction, DeclareLaunchArgument
+from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -22,10 +22,13 @@ def generate_launch_description():
 
     ld.add_action(DeclareBooleanLaunchArg("debug", default_value=False))
     ld.add_action(DeclareBooleanLaunchArg("use_sim_time", default_value=True))
-    ld.add_action(DeclareBooleanLaunchArg("start_sim", default_value=True))
     ld.add_action(DeclareBooleanLaunchArg("rviz", default_value=True))
     ld.add_action(DeclareBooleanLaunchArg("servo", default_value=True))
     ld.add_action(DeclareBooleanLaunchArg("move_group", default_value=True))
+    ld.add_action(DeclareLaunchArgument("robot_ip", default_value="192.168.1.10"))
+
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    robot_ip = LaunchConfiguration("robot_ip")
 
     bringup_pkg = FindPackageShare("kortex_bringup")
     moveit_config = generate_moveit_config()
@@ -39,14 +42,36 @@ def generate_launch_description():
                 "robot_type": "gen3_lite",
                 "gripper": "gen3_lite_2f",
                 "dof": "6",
-                "name": "gen3_lite",
+                "vision": "true",
                 "robot_name": "gen3_lite",
                 "robot_hand_controller": "gen3_lite_2f_controller",
-                "use_sim_time": "true",
                 "launch_rviz": "false",
-                "vision": "true",
+                "use_sim_time": use_sim_time,
             }.items(),
-            condition=IfCondition(LaunchConfiguration("start_sim")),
+            condition=IfCondition(use_sim_time),
+        )
+    )
+
+    ld.add_action(
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                PathJoinSubstitution([bringup_pkg, "launch", "kortex_control.launch.py"])
+            ),
+            launch_arguments={
+                "robot_type": "gen3_lite",
+                "robot_ip": robot_ip,
+                "username": "ros",
+                "password": "ros",
+                "dof": "6",
+                "robot_name": "gen3_lite",
+                "gripper": "gen3_lite_2f",
+                "use_fake_hardware": "false",
+                "fake_sensor_commands": "false",
+                "robot_hand_controller": "gen3_lite_2f_controller",
+                "launch_rviz": "false",
+                "gripper_joint_name": "right_finger_bottom_joint"
+            }.items(),
+            condition=UnlessCondition(use_sim_time),
         )
     )
 
@@ -60,7 +85,7 @@ def generate_launch_description():
                     name="home",
                     output="screen",
                     parameters=[{"use_sim_time": True}],
-                    condition=IfCondition(LaunchConfiguration("start_sim")),
+                    condition=IfCondition(use_sim_time),
                 )
             ],
         )

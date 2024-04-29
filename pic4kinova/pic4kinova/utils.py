@@ -31,7 +31,7 @@ def generate_moveit_config(arm="gen3_lite", dof=6, gripper="gen3_lite_2f"):
         "vision": "False",
         "prefix": "",
         "sim_gazebo": "False",
-        "sim_ignition": "True",
+        "sim_ignition": "False",
         "simulation_controllers": controllers,
         "gripper": gripper,
     }
