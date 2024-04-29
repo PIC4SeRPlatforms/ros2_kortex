@@ -39,6 +39,7 @@ def launch_setup(context, *args, **kwargs):
     username = LaunchConfiguration("username")
     password = LaunchConfiguration("password")
     dof = LaunchConfiguration("dof")
+    vision = LaunchConfiguration("vision")
     # General arguments
     controllers_file = LaunchConfiguration("controllers_file")
     description_package = LaunchConfiguration("description_package")
@@ -87,6 +88,9 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "dof:=",
             dof,
+            " ",
+            "vision:=",
+            vision,
             " ",
             "prefix:=",
             prefix,

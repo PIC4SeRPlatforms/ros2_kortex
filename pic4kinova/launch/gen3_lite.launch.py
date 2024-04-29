@@ -63,6 +63,7 @@ def generate_launch_description():
                 "username": "ros",
                 "password": "ros",
                 "dof": "6",
+                "vision": "true",
                 "robot_name": "gen3_lite",
                 "gripper": "gen3_lite_2f",
                 "use_fake_hardware": "false",

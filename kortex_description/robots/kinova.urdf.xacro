@@ -29,7 +29,7 @@
   <xacro:arg name="gazebo_renderer" default="ogre"/>
   <xacro:arg name="camera_width" default="640"/>
   <xacro:arg name="camera_height" default="480"/>
-  <xacro:arg name="camera_fps" default="6"/>
+  <xacro:arg name="camera_fps" default="60"/>
   <xacro:arg name="simulation_controllers" default="$(find kortex_description)/arm/$(arg arm)/$(arg dof)dof/config/ros2_controllers.yaml" />
 
 
