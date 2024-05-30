@@ -1,0 +1,30 @@
+sensors:
+  - pcl
+  # - depth
+pcl:
+  sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
+  point_cloud_topic: /camera/depth/color/points
+  max_range: 1.0
+  max_update_rate: 10.0
+  padding_offset: 0.02
+  padding_scale: 1.0
+  point_subsample: 1
+  filtered_cloud_topic: filtered_cloud
+
+depth:
+  sensor_plugin: occupancy_map_monitor/DepthImageOctomapUpdater
+  image_topic: /camera/depth/image_rect_raw
+  queue_size: 1
+  near_clipping_plane_distance: 0.2
+  far_clipping_plane_distance: 1.0
+  shadow_threshold: 1.0
+  padding_scale: 4.0
+  padding_offset: 0.03
+  max_update_rate: 10.0
+  filtered_cloud_topic: filtered_cloud
+
+# occupancy_map_monitor:
+#   middleware_handle:
+octomap_resolution: 0.05
+octomap_frame: 'end_effector_link'
+max_range: 1.0
