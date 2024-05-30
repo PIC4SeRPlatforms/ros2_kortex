@@ -297,7 +297,7 @@
     <xacro:if value="${vision}">
       <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
       <xacro:sensor_d435 parent="${prefix}end_effector_link" use_nominal_extrinsics="true" use_mesh="false">
-        <origin xyz="-0.035 0.0 0" rpy="0 -1.5707 0" />
+        <origin xyz="-0.0395 0.0 0.016" rpy="0 -1.5707 0" />
       </xacro:sensor_d435>
     </xacro:if>
   </xacro:macro>
