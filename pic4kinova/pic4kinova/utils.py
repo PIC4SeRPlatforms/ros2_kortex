@@ -13,7 +13,9 @@ import os
 import yaml
 
 
-def generate_moveit_config(arm="gen3_lite", dof=6, gripper="gen3_lite_2f"):
+def generate_moveit_config(
+    arm="gen3_lite", dof=6, gripper="gen3_lite_2f", planning_pipelines=["ompl", "pilz_industrial_motion_planner"]
+):
     controllers = os.path.join(
         get_package_share_directory("kortex_description"),
         "arms",
@@ -38,6 +40,7 @@ def generate_moveit_config(arm="gen3_lite", dof=6, gripper="gen3_lite_2f"):
 
     return (
         MoveItConfigsBuilder(arm, package_name=f"kinova_{arm}_{dof}dof_{gripper}_moveit_config")
+        .planning_pipelines(pipelines=planning_pipelines)
         .robot_description(mappings=xacro_args)
         .to_moveit_configs()
     )

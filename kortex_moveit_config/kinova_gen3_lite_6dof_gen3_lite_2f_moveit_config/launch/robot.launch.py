@@ -55,7 +55,7 @@ def launch_setup(context, *args, **kwargs):
     moveit_config = (
         MoveItConfigsBuilder(name.perform(context), package_name="kinova_gen3_lite_6dof_gen3_lite_2f_moveit_config")
         .robot_description(mappings=launch_arguments)
-        .planning_pipelines(pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"])
+        .planning_pipelines(pipelines=["ompl", "pilz_industrial_motion_planner"])
         .to_moveit_configs()
     )
 
