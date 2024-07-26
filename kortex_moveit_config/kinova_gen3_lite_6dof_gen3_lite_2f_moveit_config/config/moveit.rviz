@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /MotionPlanning1
+        - /MotionPlanning1/Scene Geometry1
       Splitter Ratio: 0.5
     Tree Height: 458
   - Class: rviz_common/Help
@@ -18,7 +19,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -77,6 +78,47 @@ Visualization Manager:
             Show Trail: false
             Value: true
           base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_bottom_screw_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_color_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_color_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_depth_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_depth_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra1_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra1_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra2_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra2_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -198,6 +240,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          camera_bottom_screw_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_color_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_color_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_depth_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_depth_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra1_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra1_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra2_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_infra2_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           dummy_link:
             Alpha: 1
             Show Axes: false
@@ -312,6 +395,20 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -330,7 +427,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.7323130369186401
+      Distance: 1.4658409357070923
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -345,10 +442,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.21039864420890808
+      Pitch: 0.31039825081825256
       Target Frame: world
       Value: Orbit (rviz_default_plugins)
-      Yaw: 4.548577308654785
+      Yaw: 0.6753860116004944
     Saved: ~
 Window Geometry:
   Displays:

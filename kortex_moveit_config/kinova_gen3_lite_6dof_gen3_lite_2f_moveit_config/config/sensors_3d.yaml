@@ -1,9 +1,31 @@
 sensors:
-  - pcl
+  # - pcl
   # - depth
+  - branches
+  # - metal_wire
 pcl:
   sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
   point_cloud_topic: /camera/depth/color/points
+  max_range: 1.0
+  max_update_rate: 10.0
+  padding_offset: 0.02
+  padding_scale: 1.0
+  point_subsample: 1
+  filtered_cloud_topic: filtered_cloud
+
+branches:
+  sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
+  point_cloud_topic: /pcl/branches
+  max_range: 1.0
+  max_update_rate: 10.0
+  padding_offset: 0.02
+  padding_scale: 1.0
+  point_subsample: 1
+  filtered_cloud_topic: filtered_cloud
+
+metal_wire:
+  sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
+  point_cloud_topic: /pcl/metal_wire
   max_range: 1.0
   max_update_rate: 10.0
   padding_offset: 0.02
